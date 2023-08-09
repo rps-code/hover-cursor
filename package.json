@@ -1,0 +1,38 @@
+{
+    "name": "hover-cursor",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [
+        "Hover",
+        "Cursor",
+        "Magic",
+        "Custom mouse cursor",
+        "Custom cursor",
+        "Cursor effects",
+        "Cursor animations",
+        "Cursor magic",
+        "Cursor hover"
+    ],
+    "author": "Karl (rps-code)",
+    "license": "MIT",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rps-code/cursor-magic.git"
+    },
+    "bugs": {
+        "url": "https://github.com/rps-code/cursor-magic/issues"
+    },
+    "homepage": "https://github.com/rps-code/cursor-magic#readme",
+    "devDependencies": {
+        "typescript": "^5.1.6"
+    },
+    "prepare": "npm run build",
+    "files": [
+        "lib/**/*"
+    ]
+}
