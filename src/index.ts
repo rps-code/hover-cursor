@@ -1,9 +1,9 @@
 import { gsap } from 'gsap'
 
 interface HoverCursorOptions {
-    class: string
+    containerQuery: string
     snapPosition: 'L' | 'M' | 'R'
-    style: number
+    customClass: string
     title: string
     toggledTitle: string
     icon: string
@@ -19,14 +19,14 @@ export class HoverCursor {
     private activeIcon: string
 
     constructor(options: HoverCursorOptions) {
-        this.mothers = document.querySelectorAll(`.${options.class}`)
+        this.mothers = document.querySelectorAll(options.containerQuery)
         this.snapPosition = options.snapPosition
         this.callbackFunction = options.toggledFunction
         this.activeTitle = options.title
         this.activeIcon = options.icon
 
         this.mothers.forEach(mother => {
-            const cursorElement = this.registerCustomCursor(options.style)
+            const cursorElement = this.registerCustomCursor(options.customClass)
             mother.appendChild(cursorElement) // <- Add cursor to mother
             this.snapCustomCursor(cursorElement) // <- Snap cursor to initial position
 
@@ -84,7 +84,7 @@ export class HoverCursor {
         }
     }
 
-    private registerCustomCursor(style: number) {
+    private registerCustomCursor(customClass: string) {
         // Create elements
         const cursor = document.createElement('div')
         const cursorTitle = document.createElement('p')
@@ -93,9 +93,9 @@ export class HoverCursor {
         const iconClassArray = this.activeIcon.split(' ')
 
         // Add classes
-        cursor.classList.add(`absolute-cursor--${style}`)
-        cursorTitle.classList.add(`absolute-cursor--title`)
-        cursorIcon.classList.add('absolute-cursor--icon', ...iconClassArray)
+        cursor.classList.add(`hover-cursor`, customClass)
+        cursorTitle.classList.add(`hover-cursor--title`)
+        cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
 
         // Add content
         cursorTitle.innerHTML = this.activeTitle
@@ -109,12 +109,12 @@ export class HoverCursor {
 
     private toggleCustomCursorContent(mother: HTMLElement) {
         // Get cursor elements
-        const cursor = mother.querySelector('div[class*="absolute-cursor--"]')
+        const cursor = mother.querySelector('div[class*="hover-cursor--"]')
 
         if (cursor === null) return // <- If cursor is not found, return (this should never happen)
 
-        const cursorTitle = cursor.querySelector('p[class*="absolute-cursor--title"]')
-        const cursorIcon = cursor.querySelector('i[class*="absolute-cursor--icon"]')
+        const cursorTitle = cursor.querySelector('p[class*="hover-cursor--title"]')
+        const cursorIcon = cursor.querySelector('i[class*="hover-cursor--icon"]')
 
         if (cursorTitle === null || cursorIcon === null) return // <- If cursorTitle or cursorIcon is not found, return (this should never happen)
 
@@ -124,6 +124,6 @@ export class HoverCursor {
         // Manage the icon class list
         const iconClassArray = this.activeIcon.split(' ')
         cursorIcon.className = ''
-        cursorIcon.classList.add('absolute-cursor--icon', ...iconClassArray)
+        cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
     }
 }
