@@ -4,22 +4,31 @@
     <br />
     <div>Elevate user experience with seamless cursor interactions</div>
     <br />
-    <h1><strong>🚧 THIS PROJECT IS WORK IN PROGRESS 🚧</strong></h1>
- 
- <a href="https://www.npmjs.com/package/hover-cursor"><img src="https://badgen.net/npm/v/hover-cursor?color=blue" alt="npm version"></a> <a href="https://github.com/rps-code/hover-cursor"><img src="https://img.shields.io/github/last-commit/rps-code/hover-cursor" alt="lastest commit"></a> <a href="https://github.com/rps-code/hover-cursor/actions"><img alt="Build Status" src="https://github.com/rps-code/hover-cursor/workflows/Build/badge.svg?color=green" /></a> <a href="https://github.com/rps-code/hover-cursor/actions"> <img alt="Publish Status" src="https://github.com/rps-code/hover-cursor/workflows/Publish/badge.svg?color=green" /></a>
+    <h1>🚧 THIS PROJECT IS WORK IN PROGRESS 🚧</h1>
+    <a href="https://www.npmjs.com/package/hover-cursor"><img src="https://badgen.net/npm/v/hover-cursor?color=blue" alt="npm version"></a> <a href="https://github.com/rps-code/hover-cursor"><img src="https://img.shields.io/github/last-commit/rps-code/hover-cursor" alt="lastest commit"></a>
 </div>
 
 ## ⭐️ Features
 
 -   Custom cursor on hover of a target element
--   Tiny in size
--   Basic, simple options
--   Works everywhere
+-   Small in size (**11.5kB** Unpacked)
+-   Written purely in Typescript
+-   Basic and really simple to use
+-   Works everywhere, anytime
+-   Options for custom functionality
 
 ## 📦 Getting Started
 
+### NPM
+
 ```
 npm i hover-cursor
+```
+
+### Yarn
+
+```
+yarn add hover-cursor
 ```
 
 If importing, then do:
@@ -29,6 +38,8 @@ import { HoverCursor } from 'hover-cursor'
 ```
 
 Usage:
+
+> **Note**: If the element does not load, make sure you are initialising your HoverCursor after `DOMContentLoaded`!
 
 ```js
 new HoverCursor({
