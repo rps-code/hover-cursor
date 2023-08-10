@@ -54,7 +54,7 @@ new HoverCursor({
 
 The following code produces the behaviour displayed in the GIF. Icon does get toggled but just changed the classes in this demo. By putting in a FontAwesome class such as `fa-solid fa-volume-high` it will show the icon and toggle it.
 
-![](https://github.com/rps-code/hover-cursor/blob/master/demo.gif)
+![](https://github.com/rps-code/hover-cursor/blob/main/demo.gif)
 
 ```js
 import { HoverCursor } from 'hover-cursor'
