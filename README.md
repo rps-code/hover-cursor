@@ -4,9 +4,9 @@ Elevate user experience with seamless cursor interactions using hover-cursor, a 
     <img align="center" width="230" src="https://i.imgur.com/bt5ZC7l.png" />
     <br />
     <br />
-    <div>Elevate user experience with seamless cursor interactions</div>
-    <h1>🚧 THIS PROJECT IS WORK IN PROGRESS 🚧</h1>
-    <a href="https://www.npmjs.com/package/hover-cursor"><img src="https://badgen.net/npm/v/hover-cursor?color=blue" alt="npm version"></a> <a href="https://github.com/rps-code/hover-cursor"><img src="https://img.shields.io/github/last-commit/rps-code/hover-cursor" alt="lastest commit"></a>
+    <div>Elevate user experience with seamless cursor interactions. This project is still in active development, please open any issues on https://github.com/rps-code/hover-cursor/issues ❤️</div>
+    <br />
+    <a href="https://www.npmjs.com/package/hover-cursor"><img src="https://badgen.net/npm/v/hover-cursor" alt="npm version"></a> <a href="https://github.com/rps-code/hover-cursor"><img src="https://img.shields.io/github/last-commit/rps-code/hover-cursor" alt="lastest commit"></a>
 </div>
 
 ## ⭐️ Features
@@ -97,6 +97,12 @@ div.hover-cursor {
 | **icon**            | The icon to display in the markup (e.g. `fa-solid fa-volume-high`)                        | ''      | ❌        |
 | **toggledIcon**     | The icon to toggle to after the target element (class) is clicked                         | ''      | ❌        |
 | **toggledFunction** | A callback function after the user clicked for custom functionality on click              | null    | ❌        |
+
+## 🛣️ Roadmap (TODO)
+
+-   Add in option to change the vertical snap position as well as horizontal
+-   Optimise build process & update build tools
+-   Add option to change the speed of transitions through parameters
 
 ## 💎 Contribution
 
