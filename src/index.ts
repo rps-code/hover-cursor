@@ -1,4 +1,5 @@
 import { gsap } from 'gsap'
+import 'css/main.css'
 
 interface HoverCursorOptions {
     containerQuery: string
@@ -34,6 +35,8 @@ export class HoverCursor {
             const cursorElement = this.registerCustomCursor(options.customClass || '')
             mother.appendChild(cursorElement) // <- Add cursor to mother
             this.snapCustomCursor(cursorElement) // <- Snap cursor to initial position
+
+            mother.style.position = 'relative' // <- Set mother to relative position to allow absolute positioning of cursor
 
             mother.addEventListener('mouseenter', () => {
                 mother.style.cursor = 'none' // <- Hide default cursor

@@ -1,0 +1,12 @@
+div.hover-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 999;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
