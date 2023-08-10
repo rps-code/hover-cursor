@@ -17,7 +17,7 @@ Elevate user experience with seamless cursor interactions using hover-cursor, a 
 -   Basic and really simple to use
 -   Works everywhere, anytime
 -   Options for custom functionality
--   Functionality only, no styling limitations
+-   Functionality styles, no styling limitations
 
 ## 📦 Getting Started
 
@@ -76,20 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```css
 div.hover-cursor {
-    position: absolute;
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
     background: orange;
-    pointer-events: none;
-    z-index: 10;
-    top: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 ```
 
