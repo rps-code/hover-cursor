@@ -12,12 +12,12 @@ Elevate user experience with seamless cursor interactions using hover-cursor, a 
 ## ⭐️ Features
 
 -   Custom cursor on hover of a target element
--   Small in size (**4.2kB** Packed, **11.3kB** Unpacked)
+-   Small in size
 -   Written purely in Typescript
 -   Basic and really simple to use
 -   Works everywhere, anytime
 -   Options for custom functionality
--   No styling limitations, completely up to you
+-   Functionality only, no styling limitations
 
 ## 📦 Getting Started
 
@@ -45,7 +45,7 @@ Usage:
 
 ```js
 new HoverCursor({
-    class: 'floating-video',
+    containerQuery: '.floating-video',
     snapPosition: 'R'
 })
 ```
@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     new HoverCursor({
-        class: 'floating-video',
+        containerQuery: '.floating-video',
         snapPosition: 'R',
-        style: 1,
+        customClass: 'my-custom-class',
         title: 'Sound On',
         toggledTitle: 'Sound Off',
         icon: 'ICON 1',
@@ -77,15 +77,34 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
+```css
+div.hover-cursor {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: black;
+    pointer-events: none;
+    z-index: 10;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+
 ## 🚀 Documentation & Properties
 
 > Documentation is still being made as the libary is still being worked on, but a brief list is below,
 
-`class`: The target element (the element that we are watching to be hovered)
+`containerQuery`: Query to locate the target element(s) (the element[s] that we are watching to be hovered)
 <br />
 `snapPosition`: **L**, **M** or **R** to define the snap position as left, middle or right
 <br />
-`style`: Amends the end number of the class. E.g. `absolute-cursor--${style}`
+`customClass`: Adds a custom class to the cursor
 <br />
 `title`: The title to display in the markup
 <br />
