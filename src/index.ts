@@ -1,5 +1,5 @@
 import { gsap } from 'gsap'
-import 'css/main.css'
+import './main.css'
 
 interface HoverCursorOptions {
     containerQuery: string
