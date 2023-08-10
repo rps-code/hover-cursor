@@ -1,7 +1,7 @@
 {
     "name": "hover-cursor",
-    "version": "1.0.4",
-    "description": "",
+    "version": "1.1.1",
+    "description": "Elevate user experience with seamless cursor interactions using hover-cursor, a powerful JS library. Create captivating web interfaces by dynamically crafting bespoke hover cursors that you can style however you need.",
     "keywords": [
         "Hover",
         "Cursor",
