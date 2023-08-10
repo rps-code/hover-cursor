@@ -52,7 +52,7 @@ new HoverCursor({
 
 ## 🙋‍♂️ Example
 
-The following code produces the behaviour displayed in the GIF. Icon does get toggled but just changed the classes in this demo. By putting in a FontAwesome class such as `fa-solid fa-volume-high` it will show the icon and toggle it.
+The following code produces the behaviour displayed in the GIF.
 
 ![](https://github.com/rps-code/hover-cursor/blob/main/demo.gif)
 
@@ -67,11 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new HoverCursor({
         containerQuery: '.floating-video',
         snapPosition: 'R',
-        customClass: 'my-custom-class',
         title: 'Sound On',
         toggledTitle: 'Sound Off',
-        icon: 'ICON 1',
-        toggledIcon: 'ICON 2',
         toggledFunction: toggleCursor
     })
 })
@@ -83,7 +80,7 @@ div.hover-cursor {
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
-    background: black;
+    background: orange;
     pointer-events: none;
     z-index: 10;
     top: 50%;
@@ -100,21 +97,16 @@ div.hover-cursor {
 
 > Documentation is still being made as the libary is still being worked on, but a brief list is below,
 
-`containerQuery`: Query to locate the target element(s) (the element[s] that we are watching to be hovered)
-<br />
-`snapPosition`: **L**, **M** or **R** to define the snap position as left, middle or right
-<br />
-`customClass`: Adds a custom class to the cursor
-<br />
-`title`: The title to display in the markup
-<br />
-`toggledTitle`: The title to toggle to after the target element (class) is clicked
-<br />
-`icon`: The icon to display in the markup (e.g. `fa-solid fa-volume-high`)
-<br />
-`toggledIcon`: The icon to toggle to after the target element (class) is clicked
-<br />
-`toggledFunction`: A callback function after the user clicked for custom functionality on click
+| Parameter           | Description                                                                               | Default | Required? |
+| ------------------- | ----------------------------------------------------------------------------------------- | ------- | --------- |
+| **containerQuery**  | Query to locate the target element(s) (the element[s] that we are watching to be hovered) |         | ✅        |
+| **snapPosition**    | **L**, **M** or **R** to define the snap position as left, middle or right                | 'M'     | ❌        |
+| **customClass**     | Adds a custom class to the cursor                                                         | ''      | ❌        |
+| **title**           | The title to display in the markup                                                        | ''      | ❌        |
+| **toggledTitle**    | The title to toggle to after the target element (class) is clicked                        | ''      | ❌        |
+| **icon**            | The icon to display in the markup (e.g. `fa-solid fa-volume-high`)                        | ''      | ❌        |
+| **toggledIcon**     | The icon to toggle to after the target element (class) is clicked                         | ''      | ❌        |
+| **toggledFunction** | A callback function after the user clicked for custom functionality on click              | null    | ❌        |
 
 ## 💎 Contribution
 
