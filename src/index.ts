@@ -2,31 +2,36 @@ import { gsap } from 'gsap'
 
 interface HoverCursorOptions {
     containerQuery: string
-    snapPosition: 'L' | 'M' | 'R'
-    customClass: string
-    title: string
-    toggledTitle: string
-    icon: string
-    toggledIcon: string
-    toggledFunction: () => void
+    snapPosition?: 'L' | 'M' | 'R'
+    customClass?: string
+    title?: string
+    toggledTitle?: string
+    icon?: string
+    toggledIcon?: string
+    toggledFunction?: () => void
 }
 
 export class HoverCursor {
     private mothers: NodeListOf<HTMLElement>
     private snapPosition: HoverCursorOptions['snapPosition']
     private callbackFunction: HoverCursorOptions['toggledFunction']
-    private activeTitle: string
-    private activeIcon: string
+    private activeTitle: string | undefined
+    private activeIcon: string | undefined
 
     constructor(options: HoverCursorOptions) {
-        this.mothers = document.querySelectorAll(options.containerQuery)
-        this.snapPosition = options.snapPosition
+        this.mothers = document.querySelectorAll(options.containerQuery) || null
+        this.snapPosition = options.snapPosition || 'M'
         this.callbackFunction = options.toggledFunction
         this.activeTitle = options.title
         this.activeIcon = options.icon
 
+        if (this.mothers === null) {
+            console.error('No containerQuery specified!')
+            return
+        }
+
         this.mothers.forEach(mother => {
-            const cursorElement = this.registerCustomCursor(options.customClass)
+            const cursorElement = this.registerCustomCursor(options.customClass || '')
             mother.appendChild(cursorElement) // <- Add cursor to mother
             this.snapCustomCursor(cursorElement) // <- Snap cursor to initial position
 
@@ -47,7 +52,10 @@ export class HoverCursor {
                 this.activeIcon = this.activeIcon === options.icon ? options.toggledIcon : options.icon
 
                 this.toggleCustomCursorContent(mother) // <- Toggle cursor on click
-                this.callbackFunction() // <- Function to be called on click specified in options
+
+                if (this.callbackFunction) {
+                    this.callbackFunction()
+                } // <- Function to be called on click specified in options
             })
         })
     }
@@ -89,16 +97,19 @@ export class HoverCursor {
         const cursor = document.createElement('div')
         const cursorTitle = document.createElement('p')
         const cursorIcon = document.createElement('i')
+        var iconClassArray = [] as string[]
 
-        const iconClassArray = this.activeIcon.split(' ')
+        if (this.activeIcon) {
+            iconClassArray = this.activeIcon.split(' ')
+        }
 
         // Add classes
-        cursor.classList.add(`hover-cursor`, customClass)
+        customClass ? cursor.classList.add(`hover-cursor`, customClass) : cursor.classList.add(`hover-cursor`)
         cursorTitle.classList.add(`hover-cursor--title`)
         cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
 
         // Add content
-        cursorTitle.innerHTML = this.activeTitle
+        cursorTitle.innerHTML = this.activeTitle || ''
 
         // Append elements
         cursor.appendChild(cursorTitle)
@@ -109,21 +120,34 @@ export class HoverCursor {
 
     private toggleCustomCursorContent(mother: HTMLElement) {
         // Get cursor elements
-        const cursor = mother.querySelector('div[class*="hover-cursor--"]')
+        const cursor = mother.querySelector('div.hover-cursor')
 
-        if (cursor === null) return // <- If cursor is not found, return (this should never happen)
+        if (cursor === null) {
+            console.error('Cursor not found, please open an issue at https://github.com/rps-code/hover-cursor if you see this.')
+            return
+        }
 
-        const cursorTitle = cursor.querySelector('p[class*="hover-cursor--title"]')
-        const cursorIcon = cursor.querySelector('i[class*="hover-cursor--icon"]')
+        const cursorTitle = cursor.querySelector('p.hover-cursor--title')
+        const cursorIcon = cursor.querySelector('i.hover-cursor--icon')
 
-        if (cursorTitle === null || cursorIcon === null) return // <- If cursorTitle or cursorIcon is not found, return (this should never happen)
+        if (cursorTitle === null || cursorIcon === null) {
+            console.error(
+                'cursorTitle or cursorIcon not found, please open an issue at https://github.com/rps-code/hover-cursor if you see this.'
+            )
+            return
+        }
 
         // Update cursor content to active states
-        cursorTitle.innerHTML = this.activeTitle
+        cursorTitle.innerHTML = this.activeTitle || ''
 
         // Manage the icon class list
-        const iconClassArray = this.activeIcon.split(' ')
-        cursorIcon.className = ''
-        cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
+        if (this.activeIcon) {
+            const iconClassArray = this.activeIcon.split(' ')
+            cursorIcon.className = ''
+            cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
+        } else {
+            cursorIcon.className = ''
+            cursorIcon.classList.add('hover-cursor--icon')
+        }
     }
 }
