@@ -1,9 +1,10 @@
+Elevate user experience with seamless cursor interactions using hover-cursor, a powerful JS library. Create captivating web interfaces by dynamically crafting bespoke hover cursors that you can style however you need.
+
 <div align="center">
     <img align="center" width="230" src="https://i.imgur.com/bt5ZC7l.png" />
     <br />
     <br />
     <div>Elevate user experience with seamless cursor interactions</div>
-    <br />
     <h1>🚧 THIS PROJECT IS WORK IN PROGRESS 🚧</h1>
     <a href="https://www.npmjs.com/package/hover-cursor"><img src="https://badgen.net/npm/v/hover-cursor?color=blue" alt="npm version"></a> <a href="https://github.com/rps-code/hover-cursor"><img src="https://img.shields.io/github/last-commit/rps-code/hover-cursor" alt="lastest commit"></a>
 </div>
@@ -11,11 +12,12 @@
 ## ⭐️ Features
 
 -   Custom cursor on hover of a target element
--   Small in size (**11.5kB** Unpacked)
+-   Small in size (**4.2kB** Packed, **11.3kB** Unpacked)
 -   Written purely in Typescript
 -   Basic and really simple to use
 -   Works everywhere, anytime
 -   Options for custom functionality
+-   No styling limitations, completely up to you
 
 ## 📦 Getting Started
 
@@ -31,7 +33,7 @@ npm i hover-cursor
 yarn add hover-cursor
 ```
 
-If importing, then do:
+In your project, import the HoverCursor class like so:
 
 ```js
 import { HoverCursor } from 'hover-cursor'
@@ -45,6 +47,33 @@ Usage:
 new HoverCursor({
     class: 'floating-video',
     snapPosition: 'R'
+})
+```
+
+## 🙋‍♂️ Example
+
+The following code produces the behaviour displayed in the GIF. Icon does get toggled but just changed the classes in this demo. By putting in a FontAwesome class such as `fa-solid fa-volume-high` it will show the icon and toggle it.
+
+![](https://github.com/rps-code/hover-cursor/blob/master/demo.gif)
+
+```js
+import { HoverCursor } from 'hover-cursor'
+
+document.addEventListener('DOMContentLoaded', () => {
+    function toggleCursor() {
+        console.log('Function called when element is clicked')
+    }
+
+    new HoverCursor({
+        class: 'floating-video',
+        snapPosition: 'R',
+        style: 1,
+        title: 'Sound On',
+        toggledTitle: 'Sound Off',
+        icon: 'ICON 1',
+        toggledIcon: 'ICON 2',
+        toggledFunction: toggleCursor
+    })
 })
 ```
 
