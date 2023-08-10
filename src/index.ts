@@ -1,6 +1,6 @@
 import { gsap } from 'gsap'
 
-interface CustomCursorOptions {
+interface HoverCursorOptions {
     class: string
     snapPosition: 'L' | 'M' | 'R'
     style: number
@@ -11,14 +11,14 @@ interface CustomCursorOptions {
     toggledFunction: () => void
 }
 
-export class CustomCursor {
+export class HoverCursor {
     private mothers: NodeListOf<HTMLElement>
-    private snapPosition: CustomCursorOptions['snapPosition']
-    private callbackFunction: CustomCursorOptions['toggledFunction']
+    private snapPosition: HoverCursorOptions['snapPosition']
+    private callbackFunction: HoverCursorOptions['toggledFunction']
     private activeTitle: string
     private activeIcon: string
 
-    constructor(options: CustomCursorOptions) {
+    constructor(options: HoverCursorOptions) {
         this.mothers = document.querySelectorAll(`.${options.class}`)
         this.snapPosition = options.snapPosition
         this.callbackFunction = options.toggledFunction
