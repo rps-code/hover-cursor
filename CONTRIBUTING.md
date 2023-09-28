@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-We appreciate your interest in contributing to magic-cursor! By following these guidelines, you can help us maintain a collaborative and productive open-source community.
+We appreciate your interest in contributing to hover-cursor! By following these guidelines, you can help us maintain a collaborative and productive open-source community.
 
 ## Code of Conduct
 
