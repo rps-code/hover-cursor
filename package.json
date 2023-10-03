@@ -1,7 +1,7 @@
 {
     "name": "hover-cursor",
-    "version": "1.1.8",
-    "description": "Elevate user experience with seamless cursor interactions using hover-cursor, a powerful JS library. Create captivating web interfaces by dynamically crafting bespoke hover cursors that you can style however you need.",
+    "version": "1.2.1",
+    "description": "Elevate user experience with seamless cursor interactions using hover-cursor, a small JS library. Create captivating web interfaces by dynamically crafting bespoke hover cursors that you can style however you need.",
     "keywords": [
         "Hover",
         "Cursor",
@@ -22,12 +22,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/rps-code/cursor-magic.git"
+        "url": "git+https://github.com/rps-code/hover-cursor/.git"
     },
     "bugs": {
-        "url": "https://github.com/rps-code/cursor-magic/issues"
+        "url": "https://github.com/rps-code/hover-cursor/issues"
     },
-    "homepage": "https://github.com/rps-code/cursor-magic#readme",
+    "homepage": "https://github.com/rps-code/hover-cursor/#readme",
     "devDependencies": {
         "typescript": "^5.1.6"
     },
