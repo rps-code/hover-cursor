@@ -94,8 +94,8 @@ div.hover-cursor {
 | **customClass**     | Adds a custom class to the cursor                                                         | ''      | ❌        |
 | **title**           | The title to display in the markup                                                        | ''      | ❌        |
 | **toggledTitle**    | The title to toggle to after the target element (class) is clicked                        | ''      | ❌        |
-| **icon**            | The icon to display in the markup (e.g. `fa-solid fa-volume-high`)                        | ''      | ❌        |
-| **toggledIcon**     | The icon to toggle to after the target element (class) is clicked                         | ''      | ❌        |
+| **icon**            | The icon src to display in the markup (e.g. `./images/right-arrow.svg`)                   | ''      | ❌        |
+| **toggledIcon**     | The icon to src toggle to after the target element is clicked                             | ''      | ❌        |
 | **toggledFunction** | A callback function after the user clicked for custom functionality on click              | null    | ❌        |
 
 ## 🛣️ Roadmap (TODO)
@@ -106,6 +106,6 @@ div.hover-cursor {
 
 ## 💎 Contribution
 
-I extend a warm invitation to developers and enthusiasts to contribute to `hover-cursor. Your insights, expertise, and fresh perspectives are invaluable assets that can help me refine and enhance my work.
+I extend a warm invitation to developers and enthusiasts to contribute to `hover-cursor`. Your insights, expertise, and fresh perspectives are invaluable assets that can help me refine and enhance my work.
 
 To get started, please review my guidelines for contributing, which can be found in the `CONTRIBUTING.md` file. If you encounter any issues, have questions, or need clarification, don't hesitate to reach out.
