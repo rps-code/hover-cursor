@@ -99,17 +99,14 @@ export class HoverCursor {
         // Create elements
         const cursor = document.createElement('div')
         const cursorTitle = document.createElement('p')
-        const cursorIcon = document.createElement('i')
-        var iconClassArray = [] as string[]
-
-        if (this.activeIcon) {
-            iconClassArray = this.activeIcon.split(' ')
-        }
+        const cursorIcon = document.createElement('img')
 
         // Add classes
         customClass ? cursor.classList.add(`hover-cursor`, customClass) : cursor.classList.add(`hover-cursor`)
         cursorTitle.classList.add(`hover-cursor--title`)
-        cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
+        cursorIcon.classList.add('hover-cursor--icon')
+
+        if (this.activeIcon) cursorIcon.src = this.activeIcon
 
         // Add content
         cursorTitle.innerHTML = this.activeTitle || ''
@@ -130,8 +127,8 @@ export class HoverCursor {
             return
         }
 
-        const cursorTitle = cursor.querySelector('p.hover-cursor--title')
-        const cursorIcon = cursor.querySelector('i.hover-cursor--icon')
+        const cursorTitle = cursor.querySelector('p.hover-cursor--title') as HTMLParagraphElement
+        const cursorIcon = cursor.querySelector('img.hover-cursor--icon') as HTMLImageElement
 
         if (cursorTitle === null || cursorIcon === null) {
             console.error(
@@ -144,13 +141,6 @@ export class HoverCursor {
         cursorTitle.innerHTML = this.activeTitle || ''
 
         // Manage the icon class list
-        if (this.activeIcon) {
-            const iconClassArray = this.activeIcon.split(' ')
-            cursorIcon.className = ''
-            cursorIcon.classList.add('hover-cursor--icon', ...iconClassArray)
-        } else {
-            cursorIcon.className = ''
-            cursorIcon.classList.add('hover-cursor--icon')
-        }
+        cursorIcon.src = this.activeIcon || ''
     }
 }
