@@ -106,7 +106,12 @@ export class HoverCursor {
         cursorTitle.classList.add(`hover-cursor--title`)
         cursorIcon.classList.add('hover-cursor--icon')
 
-        if (this.activeIcon) cursorIcon.src = this.activeIcon
+        if (this.activeIcon) {
+            cursorIcon.src = this.activeIcon
+            cursorIcon.alt = 'Custom cursor icon'
+            cursorIcon.width = 35
+            cursorIcon.height = 35
+        }
 
         // Add content
         cursorTitle.innerHTML = this.activeTitle || ''
